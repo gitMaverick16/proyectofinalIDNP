@@ -9,6 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".view.reproductor.reproductor"></activity>
+        <activity android:name=".view.registro.registro" />
+        <activity android:name=".view.perfil.perfil" />
+        <activity android:name=".view.historial.historial" />
+        <activity android:name=".view.estadisticas.estadisticas" />
+        <activity android:name=".view.entrenamiento.entrenamiento" />
+        <activity android:name=".view.autenticacion.autenticacion" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
