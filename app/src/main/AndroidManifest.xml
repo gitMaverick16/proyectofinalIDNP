@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.reproductor.reproductor"></activity>
+        <activity android:name=".view.entrenamiento.actividad_opciones" />
+        <activity android:name=".view.reproductor.reproductor" />
         <activity android:name=".view.registro.registro" />
         <activity android:name=".view.perfil.perfil" />
         <activity android:name=".view.historial.historial" />
