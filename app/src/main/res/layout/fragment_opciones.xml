@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".view.entrenamiento.Opciones"
+    android:layout_gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/correr"
+            style="@style/botones"
+            android:layout_width="wrap_content"
+            android:text="correr">
+
+        </Button>
+        <Space style="@style/espacio"/>
+
+
+        <Button
+            android:id="@+id/caminar"
+            style="@style/botones"
+            android:layout_width="wrap_content"
+            android:text="Caminar">
+
+        </Button>
+
+        <Space style="@style/espacio"/>
+        <Button
+            android:id="@+id/bicicleta"
+            style="@style/botones"
+            android:layout_width="wrap_content"
+            android:text="Bicicleta">
+
+        </Button>
+    </LinearLayout>
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+</FrameLayout>
