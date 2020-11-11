@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">proyectoIDNP</string>
+    <string name="menu_musica">Música</string>
+    <string name="menu_estadistica">Estadística</string>
+    <string name="menu_mapa">Mapa</string>
+    <string name="menu_iniciar">Iniciar</string>
+    <string name="menu_historial">Historial</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
