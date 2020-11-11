@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">proyectoIDNP</string>
+    <string name="menu_musica">Música</string>
+    <string name="menu_estadistica">Estadística</string>
+    <string name="menu_mapa">Mapa</string>
+    <string name="menu_iniciar">Iniciar</string>
+    <string name="menu_historial">Historial</string>
 </resources>

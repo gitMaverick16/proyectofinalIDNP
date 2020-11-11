@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_musica"
+        android:icon="@drawable/ic_musica_foreground"
+        android:title="@string/menu_musica"
+         />
+    <item android:id="@+id/action_historial"
+        android:title="@string/menu_historial"
+        android:icon="@drawable/ic_historial_foreground" />
+
+    <item android:id="@+id/action_estadistica"
+        android:title="@string/menu_estadistica"
+        android:icon="@drawable/ic_estadistica_foreground" />
+
+    <item android:id="@+id/action_mapa"
+        android:title="@string/menu_mapa"
+        android:icon="@drawable/ic_map_foreground" />
+
+    <item android:id="@+id/action_iniciar"
+        android:title="@string/menu_iniciar"
+        android:icon="@drawable/ic_iniciar_foreground" />
+</menu>
