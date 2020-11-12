@@ -1,27 +1,25 @@
-package com.example.proyectoidnp;
-import com.example.proyectoidnp.view.entrenamiento.entrenamiento;
-import com.example.proyectoidnp.view.estadisticas.estadisticas;
-import com.example.proyectoidnp.view.historial.historial;
-import com.example.proyectoidnp.view.reproductor.*;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.proyectoidnp.view.entrenamiento;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.proyectoidnp.MainActivity;
+import com.example.proyectoidnp.R;
+import com.example.proyectoidnp.view.estadisticas.estadisticas;
+import com.example.proyectoidnp.view.historial.historial;
+import com.example.proyectoidnp.view.reproductor.reproductor;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class entrenamiento extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_entrenamiento);
         bottomNavigationView = findViewById(R.id.NavigationButton);
         bottomNavigationView.setSelectedItemId(R.id.action_iniciar);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -37,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.action_iniciar:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
                         return true;
                     case R.id.action_mapa:
 
@@ -50,8 +50,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    public void on(View v){
-        Intent intent= new Intent(this, reproductor.class);
-        startActivity(intent);
-    }
+
 }
