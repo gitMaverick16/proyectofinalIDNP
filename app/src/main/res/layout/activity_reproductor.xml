@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.reproductor.reproductor">
+    tools:context=".view.reproductor.">
 
     <TextView
         android:id="@+id/textoMusica"
@@ -16,6 +16,8 @@
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold" />
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaDatos"
