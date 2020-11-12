@@ -2,10 +2,16 @@ package com.example.proyectoidnp.view.estadisticas;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimatedImageDrawable;
+import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.proyectoidnp.MainActivity;
 import com.example.proyectoidnp.R;
@@ -47,5 +53,17 @@ public class estadisticas extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    public void animated(View view) {
+        ImageView imageView = (ImageView) view;
+        Drawable drawable = imageView.getDrawable();
+        if (drawable instanceof AnimatedVectorDrawableCompat){
+            AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) drawable;
+            avd.start();
+        } else if(drawable instanceof AnimatedVectorDrawable){
+            AnimatedVectorDrawable avd = (AnimatedVectorDrawable) drawable;
+            avd.start();
+        }
     }
 }
