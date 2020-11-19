@@ -9,20 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.entrenamiento.entrenamiento"></activity>
-        <activity android:name=".view.entrenamiento.actividad_opciones" />
-        <activity android:name=".view.reproductor.reproductor" />
-        <activity android:name=".view.registro.registro" />
-        <activity android:name=".view.perfil.perfil" />
-        <activity android:name=".view.historial.historial" />
-        <activity android:name=".view.estadisticas.estadisticas" />
-        <activity android:name=".view.autenticacion.autenticacion" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".view.entrenamiento.entrenamiento" />
+        <activity android:name=".view.reproductor.reproductor" />
+        <activity android:name=".view.registro.RegisterView" />
+        <activity android:name=".view.perfil.perfil" />
+        <activity android:name=".view.historial.historial" />
+        <activity android:name=".view.estadisticas.estadisticas" />
+        <activity android:name=".view.autenticacion.autenticacion" />
+        <activity android:name=".MainActivity">
+
         </activity>
     </application>
 

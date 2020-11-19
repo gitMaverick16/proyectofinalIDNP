@@ -11,7 +11,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="72dp"
         android:onClick="animated"
-        android:src="@drawable/hear_rate"
+        android:stateListAnimator="@drawable/hear_rate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
