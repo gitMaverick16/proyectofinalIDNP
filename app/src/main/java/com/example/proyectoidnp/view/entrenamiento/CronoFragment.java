@@ -18,6 +18,7 @@ public class CronoFragment extends Fragment {
     protected Button terminar, parar;
     protected Chronometer crono;
     protected boolean corriendo=true;
+    private Long chronStateSave = 0L;
     public CronoFragment() {
         // Required empty public constructor
     }
@@ -42,11 +43,17 @@ public class CronoFragment extends Fragment {
         parar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                crono.stop();
+
                 if(corriendo){
+                    chronStateSave = SystemClock.elapsedRealtime();
+                    crono.stop();
                     parar.setText("Reanudar");
+                    corriendo=false;
                 }else{
+                    long intervalOnPause = (SystemClock.elapsedRealtime() - chronStateSave);
+                    crono.setBase( crono.getBase() + intervalOnPause );
                     crono.start();
+                    corriendo=true;
                     parar.setText("Parar");
                 }
             }
@@ -54,4 +61,5 @@ public class CronoFragment extends Fragment {
 
         return main;
     }
+
 }

@@ -7,12 +7,13 @@
     tools:context=".view.entrenamiento.entrenamiento">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_inciar"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="152dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/box"
+        android:onClick="iniciarEntrenamiento"
         android:text="Iniciar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
@@ -22,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="28dp"
         android:text="Entrenamiento"
         android:textColor="#5F9FFF"
         android:textSize="35sp"
@@ -31,10 +32,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="180dp"
+        android:layout_height="153dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@drawable/runtastic" />
@@ -81,5 +82,14 @@
             android:textSize="20sp" />
 
     </RadioGroup>
-
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="407dp"
+        android:layout_height="80dp"
+        android:id="@+id/botnav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/navigation_items"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

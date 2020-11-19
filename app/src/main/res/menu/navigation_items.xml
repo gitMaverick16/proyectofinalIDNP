@@ -6,8 +6,8 @@
         android:icon="@drawable/ic_musica_foreground"
         android:title="@string/menu_musica"
          />
-    <item android:id="@+id/action_historial"
-        android:title="@string/menu_historial"
+    <item android:id="@+id/action_entrenamiento"
+        android:title="Entrenamiento"
         android:icon="@drawable/ic_historial_foreground" />
 
     <item android:id="@+id/action_estadistica"
