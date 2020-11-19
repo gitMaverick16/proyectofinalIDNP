@@ -7,4 +7,7 @@
     <string name="menu_historial">Historial</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rb1">Correr</string>
+    <string name="rb2">Caminar</string>
+    <string name="rb3">Andar en bicicleta</string>
 </resources>
