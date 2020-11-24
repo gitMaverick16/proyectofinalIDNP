@@ -23,7 +23,7 @@ public class historial extends AppCompatActivity {
         setContentView(R.layout.activity_historial);
 
         bottomNavigationView = findViewById(R.id.NavigationButton);
-        bottomNavigationView.setSelectedItemId(R.id.action_historial);
+        //bottomNavigationView.setSelectedItemId(R.id.action_historial);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -32,8 +32,7 @@ public class historial extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), estadisticas.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.action_historial:
-                        return true;
+
                     case R.id.action_iniciar:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0,0);
