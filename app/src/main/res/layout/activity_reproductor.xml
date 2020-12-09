@@ -2,9 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/inferior"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.reproductor.">
+    android:layout_height="wrap_content"
+    tools:context=".view.reproductor.reproductor">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,6 +24,32 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="123dp"
+            android:layout_marginBottom="1dp"
+            android:background="#EFEFEF"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="19dp"
+                android:layout_height="96dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="10dp"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <Button
+                android:id="@+id/botonPlay"
+                android:layout_width="5dp"
+                android:layout_height="70dp"
+                android:layout_marginHorizontal="70dp"
+                android:layout_marginVertical="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_baseline_play_circle_outline_24" />
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaDatos"
             android:layout_width="match_parent"
@@ -32,32 +59,20 @@
         </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="123dp"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/NavigationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="1dp"
-        android:background="#EFEFEF"
-        android:orientation="horizontal">
+        app:itemBackground="@color/colorPrimary"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/navigation_items" />
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="19dp"
-            android:layout_height="96dp"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginVertical="10dp"
-            android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
 
-        <Button
-            android:id="@+id/playPause"
-            android:layout_width="5dp"
-            android:layout_height="70dp"
-            android:layout_marginHorizontal="70dp"
-            android:layout_marginVertical="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/ic_baseline_play_circle_outline_24"
-            android:onClick="playPause" />
-    </LinearLayout>
 </RelativeLayout>
