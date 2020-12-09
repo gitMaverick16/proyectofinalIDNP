@@ -17,8 +17,10 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.proyectoidnp.R;
+import com.example.proyectoidnp.ConjuntoEntrenamiento;
+import com.example.proyectoidnp.view.entrenamiento.dual;
+import com.example.proyectoidnp.view.entrenamiento.entrenamiento;
 import com.example.proyectoidnp.view.estadisticas.estadisticas;
-import com.example.proyectoidnp.view.historial.historial;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -63,7 +65,7 @@ public class reproductor extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.action_entrenamiento:
-                        startActivity(new Intent(getApplicationContext(), historial.class));
+                        startActivity(new Intent(getApplicationContext(), entrenamiento.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.action_iniciar:
@@ -71,7 +73,8 @@ public class reproductor extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.action_mapa:
-
+                        startActivity(new Intent(getApplicationContext(), dual.class));
+                        overridePendingTransition(0,0);
                         return true;
                     case R.id.action_musica:
                         return true;

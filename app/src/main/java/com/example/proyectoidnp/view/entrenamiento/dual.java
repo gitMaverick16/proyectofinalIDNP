@@ -1,9 +1,4 @@
-package com.example.proyectoidnp;
-import com.example.proyectoidnp.view.entrenamiento.dual;
-import com.example.proyectoidnp.view.entrenamiento.entrenamiento;
-import com.example.proyectoidnp.view.estadisticas.estadisticas;
-import com.example.proyectoidnp.view.reproductor.*;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+package com.example.proyectoidnp.view.entrenamiento;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,46 +8,46 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
-    BottomNavigationView bottomNavigationView;
+import com.example.proyectoidnp.ConjuntoEntrenamiento;
+import com.example.proyectoidnp.MainActivity;
+import com.example.proyectoidnp.R;
+import com.example.proyectoidnp.view.estadisticas.estadisticas;
+import com.example.proyectoidnp.view.reproductor.reproductor;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-    private BottomNavigationView mBottonNavegation;
+public class dual extends AppCompatActivity {
+    BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_dual);
         bottomNavigationView = findViewById(R.id.NavigationButton);
-        bottomNavigationView.setSelectedItemId(R.id.action_musica);
+        bottomNavigationView.setSelectedItemId(R.id.action_entrenamiento);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
-                    case R.id.action_estadistica:
-                        startActivity(new Intent(getApplicationContext(), dual.class));
+                    case R.id.action_musica:
+                        startActivity(new Intent(getApplicationContext(), reproductor.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.action_entrenamiento:
-                        startActivity(new Intent(getApplicationContext(), entrenamiento.class));
-                        overridePendingTransition(0,0);
-                        return true;
+
                     case R.id.action_iniciar:
-                        startActivity(new Intent(getApplicationContext(), dual.class));
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.action_mapa:
-                        startActivity(new Intent(getApplicationContext(), dual.class));
-                        overridePendingTransition(0,0);
+
                         return true;
-                    case R.id.action_musica:
+                    case R.id.action_entrenamiento:
                         return true;
                 }
                 return false;
             }
         });
     }
-    public void on(View v){
-        Intent intent= new Intent(this, reproductor.class);
+    public void iniciarEntrenamiento(View view){
+        Intent intent=new Intent(this, dual.class);
         startActivity(intent);
     }
     public void cambioEntrenamiento(){

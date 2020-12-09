@@ -1,4 +1,4 @@
-package com.example.proyectoidnp.view.entrenamiento;
+package com.example.proyectoidnp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,10 +8,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.proyectoidnp.MainActivity;
-import com.example.proyectoidnp.R;
+import com.example.proyectoidnp.view.entrenamiento.entrenamiento;
 import com.example.proyectoidnp.view.estadisticas.estadisticas;
-import com.example.proyectoidnp.view.historial.historial;
+import com.example.proyectoidnp.view.reproductor.reproductor;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ConjuntoEntrenamiento extends AppCompatActivity {
@@ -20,7 +19,7 @@ public class ConjuntoEntrenamiento extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_entrenamiento2);
+        setContentView(R.layout.activity_conjunto_entrenamiento);
 
         bottomNavigationView = findViewById(R.id.NavigationButton);
         bottomNavigationView.setSelectedItemId(R.id.action_entrenamiento);
@@ -28,13 +27,11 @@ public class ConjuntoEntrenamiento extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
-                    case R.id.action_estadistica:
-                        startActivity(new Intent(getApplicationContext(), estadisticas.class));
+                    case R.id.action_musica:
+                        startActivity(new Intent(getApplicationContext(), reproductor.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.action_entrenamiento:
-                        cambioEntrenamiento();
-                        return true;
+
                     case R.id.action_iniciar:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0,0);
@@ -42,7 +39,7 @@ public class ConjuntoEntrenamiento extends AppCompatActivity {
                     case R.id.action_mapa:
 
                         return true;
-                    case R.id.action_musica:
+                    case R.id.action_entrenamiento:
                         return true;
                 }
                 return false;
