@@ -46,10 +46,7 @@ public class reproductor extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), estadisticas.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.action_historial:
-                        startActivity(new Intent(getApplicationContext(), historial.class));
-                        overridePendingTransition(0,0);
-                        return true;
+
                     case R.id.action_iniciar:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0,0);

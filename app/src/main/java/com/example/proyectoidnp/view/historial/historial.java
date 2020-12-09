@@ -22,32 +22,6 @@ public class historial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historial);
 
-        bottomNavigationView = findViewById(R.id.NavigationButton);
-        bottomNavigationView.setSelectedItemId(R.id.action_historial);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
-                    case R.id.action_estadistica:
-                        startActivity(new Intent(getApplicationContext(), estadisticas.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.action_historial:
-                        return true;
-                    case R.id.action_iniciar:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.action_mapa:
 
-                        return true;
-                    case R.id.action_musica:
-                        startActivity(new Intent(getApplicationContext(), reproductor.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
-                return false;
-            }
-        });
     }
 }
