@@ -15,22 +15,25 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
 
 
-    BottomNavigationView mBottonNavegation;
+    private BottomNavigationView mBottonNavegation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mBottonNavegation=(BottomNavigationView) findViewById(R.id.botnav);
+
+        mBottonNavegation = findViewById(R.id.NavigationButton);
         mBottonNavegation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 if(menuItem.getItemId()==R.id.action_entrenamiento){
                     cambioEntrenamiento();
+                    return true;
                 }
                 else if(menuItem.getItemId()==R.id.action_estadistica){
                     cambioEstadistica();
+                    return true;
                 }
-                return true;
+                return false;
             }
         });
     }
