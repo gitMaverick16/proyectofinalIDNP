@@ -83,9 +83,9 @@
 
     </RadioGroup>
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="407dp"
-        android:layout_height="80dp"
-        android:id="@+id/botnav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/NavigationButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

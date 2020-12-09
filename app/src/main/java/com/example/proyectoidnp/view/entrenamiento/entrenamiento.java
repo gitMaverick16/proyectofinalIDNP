@@ -9,28 +9,44 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.proyectoidnp.MainActivity;
 import com.example.proyectoidnp.R;
 import com.example.proyectoidnp.view.estadisticas.estadisticas;
+import com.example.proyectoidnp.view.historial.historial;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class entrenamiento extends AppCompatActivity {
     private Button iniciar;
     BottomNavigationView mBottonNavegation;
+    BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entrenamiento2);
-        mBottonNavegation=(BottomNavigationView) findViewById(R.id.botnav);
-        mBottonNavegation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigationView = findViewById(R.id.NavigationButton);
+        bottomNavigationView.setSelectedItemId(R.id.action_musica);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                if(menuItem.getItemId()==R.id.action_entrenamiento){
-                    cambioEntrenamiento();
+                switch (menuItem.getItemId()){
+                    case R.id.action_estadistica:
+                        cambioEntrenamiento();
+                        return true;
+                    case R.id.action_entrenamiento:
+                        startActivity(new Intent(getApplicationContext(), historial.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.action_iniciar:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.action_mapa:
+
+                        return true;
+                    case R.id.action_musica:
+                        return true;
                 }
-                else if(menuItem.getItemId()==R.id.action_estadistica){
-                    cambioEstadistica();
-                }
-                return true;
+                return false;
             }
         });
 
