@@ -13,7 +13,7 @@ public class reproductorModelo {
         this.cancion = cancion;
     }
 
-    public reproductorModelo(String nombre, int foto, int cancion) {
+    public reproductorModelo(String nombre, int foto) {
         this.nombre = nombre;
         this.foto = foto;
         this.cancion = cancion;

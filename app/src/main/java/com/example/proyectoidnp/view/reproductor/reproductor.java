@@ -23,7 +23,7 @@ import java.util.List;
 public class reproductor extends AppCompatActivity {
     RecyclerView recyclerView;
     Adaptador adaptador;
-    List<reproductorModelo> lista;
+    ArrayList<reproductorModelo> lista;
     BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class reproductor extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), estadisticas.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.action_historial:
+                    case R.id.action_entrenamiento:
                         startActivity(new Intent(getApplicationContext(), historial.class));
                         overridePendingTransition(0,0);
                         return true;
@@ -66,6 +66,7 @@ public class reproductor extends AppCompatActivity {
     }
     public void agregar(){
         for(int i=0;i<15;i++) {
+            //lista.add(new reproductorModelo("cancion "+(i+1),R.drawable.cancion));
             lista.add(new reproductorModelo("cancion "+(i+1),R.drawable.cancion));
         }
     }
