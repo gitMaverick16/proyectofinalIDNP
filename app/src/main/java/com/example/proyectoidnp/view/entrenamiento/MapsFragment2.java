@@ -14,11 +14,12 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsFragment2 extends Fragment {
-
+    private GoogleMap mMap;
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
         /**
@@ -38,6 +39,8 @@ public class MapsFragment2 extends Fragment {
         }
     };
 
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -55,4 +58,6 @@ public class MapsFragment2 extends Fragment {
             mapFragment.getMapAsync(callback);
         }
     }
+
+
 }
