@@ -7,14 +7,17 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.proyectoidnp.LoginView;
 import com.example.proyectoidnp.MainActivity;
 import com.example.proyectoidnp.R;
 import com.example.proyectoidnp.pojo.UbicacionPojo;
@@ -175,5 +178,32 @@ public class entrenamiento extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.overflow, menu);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+
+        switch (item.getItemId()){
+            case R.id.barPerfil:
+                Toast.makeText(getApplicationContext(), "ver Perfil", Toast.LENGTH_LONG).show();
+            case R.id.barCerrarSesion:
+                deletePreference();
+                Toast.makeText(getApplicationContext(), "Cerrar Sesion", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), LoginView.class);
+                startActivity(intent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void deletePreference(){
+        SharedPreferences preferences = getSharedPreferences("Credenciales", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("username","nohaynadadenada");
+        editor.putString("password","nohaynadadenada");
+        editor.commit();
     }
 }

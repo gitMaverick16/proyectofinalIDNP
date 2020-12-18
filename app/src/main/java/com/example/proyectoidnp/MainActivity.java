@@ -2,6 +2,7 @@ package com.example.proyectoidnp;
 import com.example.proyectoidnp.view.entrenamiento.dual;
 import com.example.proyectoidnp.view.entrenamiento.entrenamiento;
 import com.example.proyectoidnp.view.estadisticas.estadisticas;
+import com.example.proyectoidnp.view.perfil.perfil;
 import com.example.proyectoidnp.view.reproductor.*;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -10,8 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
@@ -48,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
     public void on(View v){
         Intent intent= new Intent(this, reproductor.class);
         startActivity(intent);
@@ -56,8 +61,19 @@ public class MainActivity extends AppCompatActivity {
         Intent intent= new Intent(this, entrenamiento.class);
         startActivity(intent);
     }
-    public void cambioEstadistica(){
-        Intent intent= new Intent(this, estadisticas.class);
-        startActivity(intent);
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.overflow, menu);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+
+        switch (item.getItemId()){
+            case R.id.barPerfil:
+                Toast.makeText(getApplicationContext(), "ver Perfil", Toast.LENGTH_LONG).show();
+            case R.id.barCerrarSesion:
+                Toast.makeText(getApplicationContext(), "Cerrar Sesion", Toast.LENGTH_LONG).show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

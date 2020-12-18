@@ -97,8 +97,8 @@ public class RegisterView extends AppCompatActivity implements RegisterInterface
         SharedPreferences preferences = getSharedPreferences("Credenciales", MODE_PRIVATE);
         String user= preferences.getString("username", "no existe");
         String pwd = preferences.getString("password","No existe");
-        username.setText(user);
-        password.setText(pwd);
+        //username.setText(user);
+        //password.setText(pwd);
     }
 
 

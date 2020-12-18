@@ -5,13 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
+import com.example.proyectoidnp.LoginView;
 import com.example.proyectoidnp.R;
 import com.example.proyectoidnp.view.entrenamiento.dual;
 import com.example.proyectoidnp.view.entrenamiento.entrenamiento;
@@ -110,5 +114,32 @@ public class estadisticas extends AppCompatActivity {
             }
 
         }
+
+    }
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.overflow, menu);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+
+        switch (item.getItemId()){
+            case R.id.barPerfil:
+                Toast.makeText(getApplicationContext(), "ver Perfil", Toast.LENGTH_LONG).show();
+            case R.id.barCerrarSesion:
+                deletePreference();
+                Toast.makeText(getApplicationContext(), "Cerrar Sesion", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), LoginView.class);
+                startActivity(intent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void deletePreference(){
+        SharedPreferences preferences = getSharedPreferences("Credenciales", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("username","nohaynadadenada");
+        editor.putString("password","nohaynadadenada");
+        editor.commit();
     }
 }
