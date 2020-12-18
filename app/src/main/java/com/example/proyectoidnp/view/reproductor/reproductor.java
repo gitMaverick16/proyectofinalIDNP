@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectoidnp.R;
@@ -33,6 +34,7 @@ public class reproductor extends AppCompatActivity {
     int posicion = -1;
     Button playPlause;
     ImageButton imagenPresentada;
+    TextView nombrePresentado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +54,7 @@ public class reproductor extends AppCompatActivity {
             }
         });
         imagenPresentada = (ImageButton) findViewById(R.id.imageButton);
+        nombrePresentado = (TextView) findViewById(R.id.mostrarNombreCancion);
 
         bottomNavigationView = findViewById(R.id.NavigationButton);
         bottomNavigationView.setSelectedItemId(R.id.action_musica);
@@ -95,6 +98,7 @@ public class reproductor extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+
     }
     public void agregarMusicas(){
         vectormp[0] = MediaPlayer.create(this,R.raw.chiptronical);
@@ -128,6 +132,7 @@ public class reproductor extends AppCompatActivity {
     }
     public void cambioMusica(reproductorModelo reproductor){
         imagenPresentada.setImageResource(reproductor.getFoto());
+        nombrePresentado.setText(reproductor.getNombre());
     }
     public void reiniciarReproductor(){
         playPlause.setBackgroundResource(R.drawable.ic_baseline_play_circle_outline_24);
@@ -139,4 +144,5 @@ public class reproductor extends AppCompatActivity {
         }
         playPlause.setBackgroundResource(R.drawable.ic_baseline_play_circle_outline_24);
     }
+
 }
