@@ -9,17 +9,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="501dp"
-        android:layout_marginBottom="80dp"
+        android:layout_height="675dp"
+        android:layout_above="@+id/NavigationButton"
+        android:layout_marginBottom="0dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textoMusica"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginVertical="25dp"
             android:gravity="center"
-            android:text="MUSICAS"
+            android:text="REPRODUCTOR"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -27,16 +28,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="123dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="1dp"
-            android:background="#EFEFEF"
+            android:background="@drawable/fondo_cuadro"
             android:orientation="horizontal">
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/imageButton"
                 android:layout_width="276dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
                 android:layout_marginVertical="10dp"
+                android:layout_marginLeft="50dp"
                 android:layout_weight="1"
                 tools:srcCompat="@tools:sample/avatars" />
 
@@ -52,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="Sin seleccionar"
+                    android:text="desconocido"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -61,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
-                    android:layout_marginHorizontal="70dp"
+                    android:layout_marginHorizontal="50dp"
                     android:layout_marginVertical="8dp"
                     android:layout_weight="1"
                     android:background="@drawable/ic_baseline_play_circle_outline_24"
@@ -70,11 +72,19 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaDatos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="31dp">
+            android:layout_marginVertical="10dp">
 
         </androidx.recyclerview.widget.RecyclerView>
 
@@ -85,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:itemBackground="@color/colorPrimary"
-        app:itemTextColor="@drawable/selector"
+        app:itemTextColor="@color/letra"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

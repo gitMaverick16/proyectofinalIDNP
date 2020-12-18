@@ -4,13 +4,20 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.proyectoidnp.R;
+import com.example.proyectoidnp.view.entrenamiento.dual;
+import com.example.proyectoidnp.view.entrenamiento.entrenamiento;
+import com.example.proyectoidnp.view.historial.historial;
+import com.example.proyectoidnp.view.reproductor.reproductor;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

@@ -11,6 +11,7 @@ import android.view.View;
 import com.example.proyectoidnp.MainActivity;
 import com.example.proyectoidnp.R;
 import com.example.proyectoidnp.view.estadisticas.estadisticas;
+import com.example.proyectoidnp.view.historial.historial;
 import com.example.proyectoidnp.view.reproductor.reproductor;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -30,15 +31,19 @@ public class dual extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), reproductor.class));
                         overridePendingTransition(0,0);
                         return true;
-
+                    case R.id.action_entrenamiento:
+                        startActivity(new Intent(getApplicationContext(), entrenamiento.class));
+                        overridePendingTransition(0,0);
+                        return true;
                     case R.id.action_iniciar:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        return true;
+                    case R.id.action_estadistica:
+                        startActivity(new Intent(getApplicationContext(), estadisticas.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.action_mapa:
-
-                        return true;
-                    case R.id.action_entrenamiento:
+                        startActivity(new Intent(getApplicationContext(), historial.class));
+                        overridePendingTransition(0,0);
                         return true;
                 }
                 return false;
