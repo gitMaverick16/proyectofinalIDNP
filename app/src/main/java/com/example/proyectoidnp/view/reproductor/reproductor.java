@@ -4,6 +4,7 @@ import com.example.proyectoidnp.model.reproductor.*;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,19 +36,22 @@ public class reproductor extends AppCompatActivity {
     MediaPlayer vectormp[] = new MediaPlayer[5];
     int posicion = -1;
     Button playPlause;
-    ImageButton imagenPresentada;
+    ImageView imagenPresentada;
     TextView nombrePresentado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reproductor);
         lista = new ArrayList<reproductorModelo>();
+        LinearLayoutManager linear =new LinearLayoutManager(this);
         agregar();
         agregarMusicas();
         recyclerView=findViewById(R.id.listaDatos);
         adaptador=new Adaptador(lista);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adaptador);
+        DividerItemDecoration divididor = new DividerItemDecoration(this,linear.getOrientation());
+        recyclerView.addItemDecoration(divididor);
         playPlause = (Button)findViewById(R.id.botonPlay);
         playPlause.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +59,7 @@ public class reproductor extends AppCompatActivity {
                 playPause(view);
             }
         });
-        imagenPresentada = (ImageButton) findViewById(R.id.imageButton);
+        imagenPresentada = (ImageView) findViewById(R.id.imageButton);
         nombrePresentado = (TextView) findViewById(R.id.mostrarNombreCancion);
 
         bottomNavigationView = findViewById(R.id.NavigationButton);
