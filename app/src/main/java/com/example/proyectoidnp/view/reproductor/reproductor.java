@@ -23,6 +23,7 @@ import com.example.proyectoidnp.R;
 import com.example.proyectoidnp.view.entrenamiento.dual;
 import com.example.proyectoidnp.view.entrenamiento.entrenamiento;
 import com.example.proyectoidnp.view.estadisticas.estadisticas;
+import com.example.proyectoidnp.view.historial.historial;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -67,24 +68,25 @@ public class reproductor extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
-                    case R.id.action_estadistica:
-                        startActivity(new Intent(getApplicationContext(), estadisticas.class));
-                        overridePendingTransition(0,0);
+                    case R.id.action_musica:
                         return true;
                     case R.id.action_entrenamiento:
                         startActivity(new Intent(getApplicationContext(), entrenamiento.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.action_iniciar:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.action_mapa:
                         startActivity(new Intent(getApplicationContext(), dual.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.action_musica:
+                    case R.id.action_estadistica:
+                        startActivity(new Intent(getApplicationContext(), estadisticas.class));
+                        overridePendingTransition(0,0);
                         return true;
+                    case R.id.action_mapa:
+                        startActivity(new Intent(getApplicationContext(), historial.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
                 }
                 return false;
             }

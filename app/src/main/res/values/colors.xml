@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#F33DA0EF</color>
     <color name="colorAccent">#32C9DF</color>
     <color name="colorGray">#838383</color>
+    <color name="letra">#FFFFFF</color>
 </resources>

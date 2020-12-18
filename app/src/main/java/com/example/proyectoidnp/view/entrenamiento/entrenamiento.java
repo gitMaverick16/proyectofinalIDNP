@@ -19,6 +19,7 @@ import com.example.proyectoidnp.MainActivity;
 import com.example.proyectoidnp.R;
 import com.example.proyectoidnp.pojo.UbicacionPojo;
 import com.example.proyectoidnp.view.estadisticas.estadisticas;
+import com.example.proyectoidnp.view.historial.historial;
 import com.example.proyectoidnp.view.reproductor.reproductor;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
@@ -64,15 +65,17 @@ public class entrenamiento extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.action_entrenamiento:
-                        startActivity(new Intent(getApplicationContext(), entrenamiento.class));
-                        overridePendingTransition(0,0);
                         return true;
                     case R.id.action_iniciar:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), dual.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.action_estadistica:
+                        startActivity(new Intent(getApplicationContext(), estadisticas.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.action_mapa:
-                        startActivity(new Intent(getApplicationContext(), dual.class));
+                        startActivity(new Intent(getApplicationContext(), historial.class));
                         overridePendingTransition(0,0);
                         return true;
                 }
