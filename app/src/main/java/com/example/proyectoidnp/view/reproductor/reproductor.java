@@ -47,14 +47,14 @@ public class reproductor extends AppCompatActivity {
     Button playPlause;
     ImageView imagenPresentada;
     TextView nombrePresentado;
-    List<AudioModel> nuevo;
+    //List<AudioModel> nuevo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reproductor);
 
-        final List<AudioModel> mlista = getAllAudioFromDevice(this);
-        nuevo = mlista;
+        /*final List<AudioModel> mlista = getAllAudioFromDevice(this);
+        nuevo = mlista;*/
         lista = new ArrayList<reproductorModelo>();
         LinearLayoutManager linear =new LinearLayoutManager(this);
 
@@ -137,9 +137,9 @@ public class reproductor extends AppCompatActivity {
         lista.add(new reproductorModelo("luchando",R.drawable.cancion,2));
         lista.add(new reproductorModelo("lyonesse",R.drawable.cancion,3));
         lista.add(new reproductorModelo("solvepuzzle",R.drawable.cancion,4));
-        for(int i=0 ; i<nuevo.size();i++){
+        /*for(int i=0 ; i<nuevo.size();i++){
             lista.add(new reproductorModelo(nuevo.get(i).getaName(),R.drawable.cancion,i+5));
-        }
+        }*/
     }
     public void playPause(View view){
         if(posicion!=-1){
@@ -170,7 +170,7 @@ public class reproductor extends AppCompatActivity {
         }
         playPlause.setBackgroundResource(R.drawable.ic_baseline_play_circle_outline_24);
     }
-    public List<AudioModel> getAllAudioFromDevice(final Context context) {
+   /* public List<AudioModel> getAllAudioFromDevice(final Context context) {
         final List<AudioModel> tempAudioList = new ArrayList<>();
 
         Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
@@ -203,5 +203,5 @@ public class reproductor extends AppCompatActivity {
 
         return tempAudioList;
     }
-
+*/
 }
