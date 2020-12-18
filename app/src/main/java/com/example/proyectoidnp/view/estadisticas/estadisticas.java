@@ -1,5 +1,6 @@
 package com.example.proyectoidnp.view.estadisticas;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -10,11 +11,16 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.proyectoidnp.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class estadisticas extends AppCompatActivity {
-
+    private DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +31,24 @@ public class estadisticas extends AppCompatActivity {
             super(context);
         }
         protected void onDraw(Canvas canvas){
+            //Obtener datos de firebase
+            /*mDatabase= FirebaseDatabase.getInstance().getReference();
+            mDatabase.child("Ubicacion").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.exists()){
+                        double lat= Double.parseDouble(dataSnapshot.child("latitud").getValue().toString());
+                        double lon= Double.parseDouble(dataSnapshot.child("longitud").getValue().toString());
+                        String fec=dataSnapshot.child("sFecha").getValue().toString();
+                        String hor=dataSnapshot.child("sHora").getValue().toString();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });*/
             //este arreglo recibe los kilometros recorridos, en este caso de 6 dias
             ArrayList<Integer> kilo=new ArrayList<Integer>();
             //Ahora al no estar integrado al api de GoogleMaps le pondre los valores del ejemplo

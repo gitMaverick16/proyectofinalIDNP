@@ -4,6 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -34,7 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ConjuntoEntrenamiento" />
+        <activity android:name=".view.entrenamiento.ConjuntoEntrenamiento" />
         <activity android:name=".view.entrenamiento.entrenamiento" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -51,9 +52,13 @@
         <activity android:name=".view.estadisticas.estadisticas" />
         <activity android:name=".view.autenticacion.autenticacion" />
         <activity android:name=".MainActivity" />
+        <service android:name=".view.entrenamiento.LocationService"
+            android:enabled="true"
+            android:exported="false"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
     </application>
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
