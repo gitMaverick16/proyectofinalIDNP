@@ -48,4 +48,8 @@ public class UbicacionPojo {
     public void setLongitud(Double longitud) {
         this.longitud = longitud;
     }
+    public String toString(){
+        return "Ubicación:  "+getLatitud()+" / "+getLongitud()+"\nFecha:  "+getsFecha()
+                +"\nHora:  "+getsHora();
+    }
 }
