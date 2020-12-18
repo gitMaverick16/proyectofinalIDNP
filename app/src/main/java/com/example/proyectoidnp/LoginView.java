@@ -36,7 +36,7 @@ public class LoginView extends AppCompatActivity implements LoginInterfaceView {
         progressBar = findViewById(R.id.login_progressBar);
         presenter = new LoginPresenter(this);
 
-        //chargerPreference();
+        chargerPreference();
         login = findViewById(R.id.btn_login_login);
         register = findViewById(R.id.btn_login_register);
 
@@ -57,6 +57,10 @@ public class LoginView extends AppCompatActivity implements LoginInterfaceView {
         SharedPreferences preferences = getSharedPreferences("Credenciales", MODE_PRIVATE);
         String user= preferences.getString("username", "no existe");
         String pwd = preferences.getString("password","No existe");
+
+        if(!user.isEmpty() && !pwd.isEmpty()){
+            navigateToLogin();
+        }
 
     }
     public void savePreference(){

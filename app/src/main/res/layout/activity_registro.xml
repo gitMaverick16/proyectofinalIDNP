@@ -1,4 +1,7 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_vertical"
@@ -6,84 +9,88 @@
 
     <TextView
         android:id="@+id/inicio"
-        android:layout_width="93dp"
-        android:textSize="40sp"
-        android:textAlignment="center"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="50dp"
+        android:layout_width="197dp"
+        android:layout_height="77dp"
         android:layout_marginStart="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="100dp"
-        android:text="@string/register_title" />
+        android:text="@string/register_title"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/register_name"
         android:layout_width="340dp"
         android:layout_height="70dp"
-        android:layout_below="@+id/inicio"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="51dp"
         android:autofillHints="no"
         android:hint="@string/register_nombre"
-        android:inputType="text" />
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inicio" />
 
     <EditText
         android:id="@+id/register_username"
         android:layout_width="340dp"
         android:layout_height="70dp"
-        android:layout_below="@+id/register_name"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginStart="54dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="45dp"
         android:autofillHints="no"
         android:hint="@string/username"
-        android:inputType="text" />
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_name" />
 
     <EditText
         android:id="@+id/register_password"
         android:layout_width="340dp"
         android:layout_height="70dp"
-        android:layout_below="@+id/register_username"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginStart="50dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="49dp"
         android:hint="@string/password"
-        android:inputType="textPassword" />
-
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_username" />
 
 
     <Button
         android:id="@+id/btn_register_cancelar"
-        android:layout_width="137dp"
-        android:layout_height="52dp"
-        android:layout_below="@+id/register_password"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="42dp"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="55dp"
         android:layout_marginBottom="210dp"
-        android:layout_toStartOf="@+id/btn_register_register"
-        android:text="@string/register_cancelar" />
+        android:text="@string/register_cancelar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_register_register"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_password"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_register_register"
-        android:layout_width="139dp"
-        android:layout_height="62dp"
-        android:layout_below="@+id/register_password"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="39dp"
+        android:layout_marginEnd="28dp"
         android:layout_marginBottom="210dp"
-        android:text="@string/register" />
+        android:text="@string/register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_password"
+        app:layout_constraintVertical_bias="0.0" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
