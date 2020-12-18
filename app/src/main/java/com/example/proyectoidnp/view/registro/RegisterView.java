@@ -18,6 +18,7 @@ import com.example.proyectoidnp.R;
 import com.example.proyectoidnp.interfaces.presentadorInterface.RegisterInterfacePresenter;
 import com.example.proyectoidnp.interfaces.viewinterface.RegisterInterfaceView;
 import com.example.proyectoidnp.presentador.registro.RegisterPresenter;
+import com.example.proyectoidnp.view.reproductor.reproductor;
 
 public class RegisterView extends AppCompatActivity implements RegisterInterfaceView {
     private TextView name;
@@ -65,7 +66,7 @@ public class RegisterView extends AppCompatActivity implements RegisterInterface
         if(validation){
             Toast.makeText(getApplicationContext(), request,Toast.LENGTH_LONG).show();
             savePreference();
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), reproductor.class);
             startActivity(intent);
         }else{
             Toast.makeText(getApplicationContext(), request,Toast.LENGTH_LONG).show();

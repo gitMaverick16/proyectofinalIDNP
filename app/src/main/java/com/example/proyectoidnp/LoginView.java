@@ -16,6 +16,7 @@ import com.example.proyectoidnp.interfaces.viewinterface.LoginInterfaceView;
 import com.example.proyectoidnp.presentador.login.LoginPresenter;
 import com.example.proyectoidnp.presentador.registro.RegisterPresenter;
 import com.example.proyectoidnp.view.registro.RegisterView;
+import com.example.proyectoidnp.view.reproductor.reproductor;
 
 public class LoginView extends AppCompatActivity implements LoginInterfaceView {
     private final String ERROR_USERNAME ="Usuario Incorrecto o no existe";
@@ -78,7 +79,7 @@ public class LoginView extends AppCompatActivity implements LoginInterfaceView {
     public void checkSession(String request, boolean exito){
         if(exito){
             Toast.makeText(getApplicationContext(), request,Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), reproductor.class);
             startActivity(intent);
         }
         else {
