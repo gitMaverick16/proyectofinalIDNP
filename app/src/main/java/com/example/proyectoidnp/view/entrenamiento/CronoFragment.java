@@ -1,7 +1,15 @@
 package com.example.proyectoidnp.view.entrenamiento;
 
+import android.Manifest;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.SystemClock;
@@ -10,11 +18,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.Toast;
 
 import com.example.proyectoidnp.R;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
 public class CronoFragment extends Fragment {
 
+    private static final int REQUEST_CODE_LOCATION_PERMISSION = 1;
     protected Button terminar, parar;
     protected Chronometer crono;
     protected boolean corriendo=true;
@@ -35,6 +47,8 @@ public class CronoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View main=inflater.inflate(R.layout.fragment_crono, container, false);
+
+
         terminar = (Button) main.findViewById(R.id.terminar);
         parar = (Button) main.findViewById(R.id.pausar);
         crono = (Chronometer) main.findViewById(R.id.cronometro);
@@ -58,8 +72,16 @@ public class CronoFragment extends Fragment {
                 }
             }
         });
-
+        terminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cambioEntrenamiento();
+            }
+        });
         return main;
     }
-
+    public void cambioEntrenamiento(){
+        Intent intent= new Intent(this.getContext(), entrenamiento.class);
+        startActivity(intent);
+    }
 }

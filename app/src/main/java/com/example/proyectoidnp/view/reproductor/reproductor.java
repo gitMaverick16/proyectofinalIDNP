@@ -20,7 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectoidnp.R;
-import com.example.proyectoidnp.ConjuntoEntrenamiento;
 import com.example.proyectoidnp.view.entrenamiento.dual;
 import com.example.proyectoidnp.view.entrenamiento.entrenamiento;
 import com.example.proyectoidnp.view.estadisticas.estadisticas;

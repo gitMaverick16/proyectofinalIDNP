@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import com.example.proyectoidnp.MainActivity;
 import com.example.proyectoidnp.R;
-import com.example.proyectoidnp.ConjuntoEntrenamiento;
 import com.example.proyectoidnp.pojo.UbicacionPojo;
 import com.example.proyectoidnp.view.estadisticas.estadisticas;
 import com.example.proyectoidnp.view.reproductor.reproductor;
@@ -34,6 +33,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class entrenamiento extends AppCompatActivity {
     private Button iniciar;
@@ -128,7 +130,11 @@ public class entrenamiento extends AppCompatActivity {
     public void iniciarEntrenamiento(View view){
         Intent intent=new Intent(this, dual.class);
         startActivity(intent);
-        dameubicacion();
+
+                dameubicacion();
+
+
+
     }
     public void cambioEntrenamiento(){
         Intent intent= new Intent(this, entrenamiento.class);
