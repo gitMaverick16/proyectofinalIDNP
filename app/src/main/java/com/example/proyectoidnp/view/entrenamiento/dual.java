@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.proyectoidnp.ConjuntoEntrenamiento;
 import com.example.proyectoidnp.MainActivity;
 import com.example.proyectoidnp.R;
 import com.example.proyectoidnp.view.estadisticas.estadisticas;
