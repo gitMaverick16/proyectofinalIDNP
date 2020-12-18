@@ -1,17 +1,19 @@
 package com.example.proyectoidnp.model.registro;
 
-import android.content.SharedPreferences;
+import android.content.Context;
+import android.util.Log;
 
 import com.example.proyectoidnp.interfaces.modelInterface.RegisterInterfaceModel;
 import com.example.proyectoidnp.interfaces.presentadorInterface.RegisterInterfacePresenter;
+import com.example.proyectoidnp.model.BaseDatos.DBHelper;
 import com.example.proyectoidnp.model.usuarios.User;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class RegisterModel implements RegisterInterfaceModel {
     private RegisterInterfacePresenter presenter;
     private User user;
-    private boolean respuesta;
+    private String request;
+    private boolean validation;
+    private DBHelper dbHelper;
 
     public RegisterModel(RegisterInterfacePresenter presenter){
 
@@ -19,14 +21,31 @@ public class RegisterModel implements RegisterInterfaceModel {
     }
 
     @Override
-    public void createUser(String name, String username, String password) {
+    public void createUser(String name, String username, String password, Context context) {
+        dbHelper = new DBHelper(context);
         if(name.isEmpty() || username.isEmpty()|| password.isEmpty()){
-            respuesta = false;
+            request = "Complete todos los campos";
+            validation = false;
         }else {
-            user = new User(name,username,password);
-            respuesta = true;
+            boolean checkUser = dbHelper.checkUsername(username);
+
+            if (!checkUser){
+                boolean insert = dbHelper.insertData(username,name,password);
+                if (insert){
+                    request = "Registrado Satisfactoriamente";
+                    validation = true;
+                }
+                else {
+                    request = "Fallo al registrar";
+                    validation = false;
+                }
+            }
+            else {
+                request = "Usuario ya existente";
+                validation = false;
+            }
+
         }
-        String respuestas = "USUARIO REGISTRADO EXITOSAMENTE";
-        presenter.showSaveUser(respuesta);
+        presenter.showSaveUser(request, validation);
     }
 }

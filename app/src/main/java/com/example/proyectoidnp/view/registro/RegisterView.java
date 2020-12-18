@@ -3,6 +3,7 @@ package com.example.proyectoidnp.view.registro;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import com.example.proyectoidnp.R;
 import com.example.proyectoidnp.interfaces.presentadorInterface.RegisterInterfacePresenter;
 import com.example.proyectoidnp.interfaces.viewinterface.RegisterInterfaceView;
 import com.example.proyectoidnp.presentador.registro.RegisterPresenter;
+import com.example.proyectoidnp.view.reproductor.reproductor;
 
 public class RegisterView extends AppCompatActivity implements RegisterInterfaceView {
     private TextView name;
@@ -43,9 +45,8 @@ public class RegisterView extends AppCompatActivity implements RegisterInterface
             @Override
             public void onClick(View view) {
                // Toast.makeText(getApplicationContext(), "Se apreto",Toast.LENGTH_LONG).show();
-                presenter.createUser(name.getText().toString(),username.getText().toString(),password.getText().toString());
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
+                presenter.createUser(name.getText().toString(),username.getText().toString(),password.getText().toString(), getApplicationContext());
+
             }
         });
 
@@ -59,25 +60,16 @@ public class RegisterView extends AppCompatActivity implements RegisterInterface
         chargerPreference();
     }
 
-  /*  public void onClick(View view){
-        switch (view.getId()){
-            case R.id.btn_register_cancelar:
-
-                break;
-            case R.id.btn_register_register:
-                presenter.createUser(name.getText().toString(),username.getText().toString(),password.getText().toString());
-                break;
-        }
-    }*/
-
 
     @Override
-    public void showSaveUser(boolean respuesta) {
-        if(respuesta){
-            Toast.makeText(getApplicationContext(), "Se guardaron los datos",Toast.LENGTH_LONG).show();
+    public void showSaveUser(String request, boolean validation) {
+        if(validation){
+            Toast.makeText(getApplicationContext(), request,Toast.LENGTH_LONG).show();
             savePreference();
+            Intent intent = new Intent(getApplicationContext(), reproductor.class);
+            startActivity(intent);
         }else{
-            Toast.makeText(getApplicationContext(), "Error al guardar",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), request,Toast.LENGTH_LONG).show();
         }
     }
 

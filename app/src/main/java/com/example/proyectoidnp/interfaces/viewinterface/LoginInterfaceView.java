@@ -5,7 +5,7 @@ import com.example.proyectoidnp.model.usuarios.User;
 public interface LoginInterfaceView {
     void showProgress();
     void hideProgress();
-
+    void checkSession(String request, boolean exito);
     void showErrorUser();
     void showErrorPassword();
 

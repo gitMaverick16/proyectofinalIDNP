@@ -59,18 +59,15 @@
         android:inputType="textPassword" />
 
 
-
     <Button
         android:id="@+id/btn_register_cancelar"
-        android:layout_width="137dp"
-        android:layout_height="52dp"
-        android:layout_below="@+id/register_password"
+        android:layout_width="139dp"
+        android:layout_height="62dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="42dp"
-        android:layout_marginTop="44dp"
         android:layout_marginEnd="55dp"
-        android:layout_marginBottom="210dp"
+        android:layout_marginBottom="20dp"
         android:layout_toStartOf="@+id/btn_register_register"
         android:text="@string/register_cancelar" />
 
@@ -78,12 +75,10 @@
         android:id="@+id/btn_register_register"
         android:layout_width="139dp"
         android:layout_height="62dp"
-        android:layout_below="@+id/register_password"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="44dp"
         android:layout_marginEnd="39dp"
-        android:layout_marginBottom="210dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/register" />
 
 </RelativeLayout>

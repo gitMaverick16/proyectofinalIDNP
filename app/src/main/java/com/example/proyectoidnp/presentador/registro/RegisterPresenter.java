@@ -1,5 +1,8 @@
 package com.example.proyectoidnp.presentador.registro;
 
+import android.content.Context;
+import android.view.View;
+
 import com.example.proyectoidnp.interfaces.modelInterface.RegisterInterfaceModel;
 import com.example.proyectoidnp.interfaces.presentadorInterface.RegisterInterfacePresenter;
 import com.example.proyectoidnp.interfaces.viewinterface.RegisterInterfaceView;
@@ -15,20 +18,21 @@ public class RegisterPresenter implements RegisterInterfacePresenter {
         model = new RegisterModel(this);
     }
 
+
     @Override
-    public void createUser(String name, String username, String password) {
+    public void createUser(String name, String username, String password, Context context) {
         if(view!=null){
-            model.createUser(name, username, password);
+            model.createUser(name, username, password, context);
         }
     }
 
     @Override
-    public void showSaveUser(boolean respuesta) {
-        view.showSaveUser(respuesta);
+    public void showSaveUser(String request, boolean validation) {
+        view.showSaveUser(request,validation);
     }
 
     @Override
     public void showError(String error) {
-
+        view.showError(error);
     }
 }

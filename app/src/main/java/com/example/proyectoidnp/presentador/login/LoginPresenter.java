@@ -1,4 +1,5 @@
 package com.example.proyectoidnp.presentador.login;
+import android.content.Context;
 import android.view.View;
 
 import com.example.proyectoidnp.LoginView;
@@ -15,11 +16,11 @@ public class LoginPresenter implements LoginInterfacePresenter {
         model = new LoginModel(this);
     }
     @Override
-    public void validateUser(String username, String password) {
+    public void validateUser(String username, String password, Context context) {
         if (view!=null){
             view.showProgress();
         }
-        model.validateUser(username,password);
+        model.validateUser(username,password, context);
     }
 
     @Override
@@ -39,10 +40,7 @@ public class LoginPresenter implements LoginInterfacePresenter {
     }
 
     @Override
-    public void exitoOperacion() {
-        if(view!=null){
-            view.showProgress();
-            view.navigateToLogin();
-        }
+    public void exitoOperacion(String request, boolean exito) {
+        view.checkSession(request, exito);
     }
 }

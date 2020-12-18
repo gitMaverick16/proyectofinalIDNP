@@ -16,6 +16,7 @@ import com.example.proyectoidnp.interfaces.viewinterface.LoginInterfaceView;
 import com.example.proyectoidnp.presentador.login.LoginPresenter;
 import com.example.proyectoidnp.presentador.registro.RegisterPresenter;
 import com.example.proyectoidnp.view.registro.RegisterView;
+import com.example.proyectoidnp.view.reproductor.reproductor;
 
 public class LoginView extends AppCompatActivity implements LoginInterfaceView {
     private final String ERROR_USERNAME ="Usuario Incorrecto o no existe";
@@ -49,7 +50,7 @@ public class LoginView extends AppCompatActivity implements LoginInterfaceView {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.validateUser(username.getText().toString(),password.getText().toString());
+                presenter.validateUser(username.getText().toString(),password.getText().toString(), getApplicationContext());
             }
         });
     }
@@ -57,7 +58,7 @@ public class LoginView extends AppCompatActivity implements LoginInterfaceView {
         SharedPreferences preferences = getSharedPreferences("Credenciales", MODE_PRIVATE);
         String user= preferences.getString("username", "no existe");
         String pwd = preferences.getString("password","No existe");
-        checkSession(user,pwd);
+
     }
     public void savePreference(){
         SharedPreferences preferences = getSharedPreferences("Credenciales", MODE_PRIVATE);
@@ -70,15 +71,18 @@ public class LoginView extends AppCompatActivity implements LoginInterfaceView {
         password.setText(pwd);
         editor.commit();
     }
-    public void checkSession(String user, String pwd){
-        if(!user.equalsIgnoreCase("no existe") && !pwd.equalsIgnoreCase("no existe")){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+    @Override
+    public void checkSession(String request, boolean exito){
+        if(exito){
+            Toast.makeText(getApplicationContext(), request,Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getApplicationContext(), reproductor.class);
             startActivity(intent);
         }
+        else {
+            Toast.makeText(getApplicationContext(), request, Toast.LENGTH_LONG).show();
+        }
     }
-    public void validate(View view){
-        presenter.validateUser(username.getText().toString(), password.getText().toString());
-    }
+
     @Override
     public void showProgress() {
         progressBar.setVisibility(View.VISIBLE);
