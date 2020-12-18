@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.action_estadistica:
+                    case R.id.action_mapa:
                         startActivity(new Intent(getApplicationContext(), dual.class));
                         overridePendingTransition(0,0);
                         return true;
@@ -37,10 +38,6 @@ public class MainActivity extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.action_iniciar:
-                        startActivity(new Intent(getApplicationContext(), dual.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.action_mapa:
                         startActivity(new Intent(getApplicationContext(), dual.class));
                         overridePendingTransition(0,0);
                         return true;

@@ -49,7 +49,7 @@ public class LoginView extends AppCompatActivity implements LoginInterfaceView {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.validateUser(username.getText().toString(),password.getText().toString());
+                presenter.validateUser(username.getText().toString(),password.getText().toString(), getApplicationContext());
             }
         });
     }
@@ -57,7 +57,7 @@ public class LoginView extends AppCompatActivity implements LoginInterfaceView {
         SharedPreferences preferences = getSharedPreferences("Credenciales", MODE_PRIVATE);
         String user= preferences.getString("username", "no existe");
         String pwd = preferences.getString("password","No existe");
-        checkSession(user,pwd);
+
     }
     public void savePreference(){
         SharedPreferences preferences = getSharedPreferences("Credenciales", MODE_PRIVATE);
@@ -70,15 +70,18 @@ public class LoginView extends AppCompatActivity implements LoginInterfaceView {
         password.setText(pwd);
         editor.commit();
     }
-    public void checkSession(String user, String pwd){
-        if(!user.equalsIgnoreCase("no existe") && !pwd.equalsIgnoreCase("no existe")){
+    @Override
+    public void checkSession(String request, boolean exito){
+        if(exito){
+            Toast.makeText(getApplicationContext(), request,Toast.LENGTH_LONG).show();
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
         }
+        else {
+            Toast.makeText(getApplicationContext(), request, Toast.LENGTH_LONG).show();
+        }
     }
-    public void validate(View view){
-        presenter.validateUser(username.getText().toString(), password.getText().toString());
-    }
+
     @Override
     public void showProgress() {
         progressBar.setVisibility(View.VISIBLE);
