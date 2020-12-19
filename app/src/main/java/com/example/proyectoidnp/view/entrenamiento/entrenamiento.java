@@ -6,6 +6,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -21,6 +23,7 @@ import com.example.proyectoidnp.LoginView;
 import com.example.proyectoidnp.MainActivity;
 import com.example.proyectoidnp.R;
 import com.example.proyectoidnp.pojo.UbicacionPojo;
+import com.example.proyectoidnp.view.entrenamiento.Entidades.Entrenamiento;
 import com.example.proyectoidnp.view.estadisticas.estadisticas;
 import com.example.proyectoidnp.view.historial.historial;
 import com.example.proyectoidnp.view.reproductor.reproductor;
@@ -42,6 +45,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class entrenamiento extends AppCompatActivity {
+    private static final int REQUEST_CODE_LOCATION_PERMISSION = 1;
     private Button iniciar;
     private FusedLocationProviderClient ubicacion;
     FirebaseDatabase database;
@@ -53,6 +57,9 @@ public class entrenamiento extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entrenamiento2);
 
+        //a
+
+        //a
         database = FirebaseDatabase.getInstance();
         reubicacion = database.getReference("Ubicacion");
 
@@ -136,8 +143,18 @@ public class entrenamiento extends AppCompatActivity {
     public void iniciarEntrenamiento(View view){
         Intent intent=new Intent(this, dual.class);
         startActivity(intent);
-
-                dameubicacion();
+        if(ContextCompat.checkSelfPermission(
+                getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION
+        ) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(
+                    entrenamiento.this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    REQUEST_CODE_LOCATION_PERMISSION
+            );
+        }else {
+            startLocationService();
+        }
+                        dameubicacion();
 
 
 
@@ -205,5 +222,52 @@ public class entrenamiento extends AppCompatActivity {
         editor.putString("username","nohaynadadenada");
         editor.putString("password","nohaynadadenada");
         editor.commit();
+    }
+    //conseguir ubicacion cada 2 segundos
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == REQUEST_CODE_LOCATION_PERMISSION && grantResults.length > 0){
+            if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                startLocationService();
+            }else{
+                Toast.makeText(this, "Permission denied!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private boolean isLocationServiceRunning(){
+        ActivityManager activityManager =
+                (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        if(activityManager != null){
+            for(ActivityManager.RunningServiceInfo service :
+                    activityManager.getRunningServices(Integer.MAX_VALUE)){
+                if(LocationService.class.getName().equals(service.service.getClassName())){
+                    if(service.foreground){
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return false;
+    }
+
+    private void startLocationService(){
+        if(!isLocationServiceRunning()){
+            Intent intent =new Intent(getApplicationContext(), LocationService.class);
+            intent.setAction(Constants.ACTION_START_LOCATION_SERVICE);
+            startService(intent);
+            Toast.makeText(this, "Location Service started", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void stopLocationService() {
+        if(isLocationServiceRunning()){
+            Intent intent = new Intent(getApplicationContext(), LocationService.class);
+            intent.setAction(Constants.ACTION_STOP_LOCATION_SERVICE);
+            startService(intent);
+            Toast.makeText(this, "Location service stopped", Toast.LENGTH_SHORT).show();
+        }
     }
 }
