@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.proyectoidnp.LoginView;
@@ -32,10 +33,48 @@ import java.util.ArrayList;
 
 public class estadisticas extends AppCompatActivity {
     private DatabaseReference mDatabase;
+    BottomNavigationView bottomNavigationView;
+    ArrayList<Integer> kilo=new ArrayList<Integer>();
+    RelativeLayout muestra;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new MiPropiaVista(this));
+        setContentView(R.layout.activity_estadisticas);
+        //setContentView(new MiPropiaVista(this));
+        //muestra de grafico
+        muestra = (RelativeLayout)findViewById(R.id.imagenEstadistica);
+        MiPropiaVista vista = new MiPropiaVista(this);
+        muestra.addView(vista);
+        //fin
+        bottomNavigationView = findViewById(R.id.NavigationButton);
+        bottomNavigationView.setSelectedItemId(R.id.action_musica);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.action_musica:
+                        startActivity(new Intent(getApplicationContext(), reproductor.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.action_entrenamiento:
+                        startActivity(new Intent(getApplicationContext(), entrenamiento.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.action_iniciar:
+                        startActivity(new Intent(getApplicationContext(), dual.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.action_estadistica:
+                        return true;
+                    case R.id.action_mapa:
+                        startActivity(new Intent(getApplicationContext(), historial.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                }
+                return false;
+            }
+        });
     }
     public class MiPropiaVista extends View {
         public MiPropiaVista(Context context){
@@ -61,7 +100,7 @@ public class estadisticas extends AppCompatActivity {
                 }
             });*/
             //este arreglo recibe los kilometros recorridos, en este caso de 6 dias
-            ArrayList<Integer> kilo=new ArrayList<Integer>();
+
             //Ahora al no estar integrado al api de GoogleMaps le pondre los valores del ejemplo
             kilo.add(3);
             kilo.add(4);
@@ -93,6 +132,9 @@ public class estadisticas extends AppCompatActivity {
             miPincel5.setStrokeWidth(1);
             miPincel5.setStyle(Paint.Style.FILL);
             miPincel5.setTextSize(50);
+            for(int i=1;i<=11;i++){
+                canvas.drawLine(0+100,i*50+100,700+300,i*50+100,miPincel3);
+            }
             canvas.drawText("Progreso",450,100,miPincel2);
             canvas.drawLine(100,600-(kilo.get(0)*100-50),250,600-(kilo.get(1)*100-50),miPincel);
             canvas.drawText(kilo.get(0)+"",100,600-(kilo.get(0)*100-40),miPincel5);
@@ -106,15 +148,29 @@ public class estadisticas extends AppCompatActivity {
             canvas.drawText(kilo.get(4)+"",700,600-(kilo.get(4)*100-40),miPincel5);
             canvas.drawLine(850,600-(kilo.get(5)*100-50),1000,600-(kilo.get(6)*100-50),miPincel);
             canvas.drawText(kilo.get(5)+"",850,600-(kilo.get(5)*100-40),miPincel5);
-            for(int i=1;i<=11;i++){
-                canvas.drawLine(0+100,i*50+100,700+300,i*50+100,miPincel3);
-            }
+
             for(int i=0;i<6;i++){
                 canvas.drawText("Dia "+(i+1),100+150*i,750,miPincel4);
             }
 
         }
 
+    }
+    public void actualizarGrafico(View view){
+        int numero = (int)(Math.random()*4+1);
+        actualizarKilo(numero);
+        MiPropiaVista vista = new MiPropiaVista(this);
+        if (muestra.getChildCount() > 0)
+            muestra.removeAllViews();
+        muestra.addView(vista);
+    }
+    public void actualizarKilo(Integer integer){
+        ArrayList<Integer> nuevo=new ArrayList<Integer>();
+        for(int i=1;i<kilo.size();i++){
+            nuevo.add(kilo.get(i));
+        }
+        nuevo.add(integer);
+        kilo=nuevo;
     }
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.overflow, menu);
