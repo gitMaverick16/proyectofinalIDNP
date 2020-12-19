@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -37,7 +39,7 @@ public class LoginView extends AppCompatActivity implements LoginInterfaceView {
         progressBar = findViewById(R.id.login_progressBar);
         presenter = new LoginPresenter(this);
 
-        //chargerPreference();
+        chargerPreference();
         login = findViewById(R.id.btn_login_login);
         register = findViewById(R.id.btn_login_register);
 
@@ -54,10 +56,17 @@ public class LoginView extends AppCompatActivity implements LoginInterfaceView {
             }
         });
     }
+
     public void chargerPreference(){
         SharedPreferences preferences = getSharedPreferences("Credenciales", MODE_PRIVATE);
         String user= preferences.getString("username", "no existe");
         String pwd = preferences.getString("password","No existe");
+
+        assert user != null;
+        assert pwd != null;
+        if(!user.equals("nohaynadadenada") && !pwd.equals("nohaynadadenada")){
+            navigateToLogin();
+        }
 
     }
     public void savePreference(){
@@ -66,6 +75,7 @@ public class LoginView extends AppCompatActivity implements LoginInterfaceView {
         String pwd = password.getText().toString();
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("username",usrname);
+
         editor.putString("password",pwd);
         username.setText(usrname);
         password.setText(pwd);
@@ -110,7 +120,7 @@ public class LoginView extends AppCompatActivity implements LoginInterfaceView {
 
     @Override
     public void navigateToLogin() {
-        startActivity(new Intent(LoginView.this,MainActivity.class));
+        startActivity(new Intent(LoginView.this,reproductor.class));
     }
 
 }
