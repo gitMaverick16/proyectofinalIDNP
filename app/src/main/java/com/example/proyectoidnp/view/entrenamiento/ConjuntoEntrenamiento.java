@@ -29,7 +29,12 @@ public class ConjuntoEntrenamiento extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conjunto_entrenamiento);
-        /*
+        findViewById(R.id.terminar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stopLocationService();
+            }
+        });
         //incio de localizacion
 
         if(ContextCompat.checkSelfPermission(
@@ -52,7 +57,7 @@ public class ConjuntoEntrenamiento extends AppCompatActivity {
             }
         });
         //fin de detener localizacion
-        */
+
         bottomNavigationView = findViewById(R.id.NavigationButton);
         bottomNavigationView.setSelectedItemId(R.id.action_entrenamiento);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -90,7 +95,7 @@ public class ConjuntoEntrenamiento extends AppCompatActivity {
         Intent intent= new Intent(this, estadisticas.class);
         startActivity(intent);
     }
-/*
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -137,6 +142,4 @@ public class ConjuntoEntrenamiento extends AppCompatActivity {
             Toast.makeText(this, "Location service stopped", Toast.LENGTH_SHORT).show();
         }
     }
-
- */
 }

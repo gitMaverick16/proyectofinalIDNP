@@ -21,6 +21,7 @@ import android.widget.Chronometer;
 import android.widget.Toast;
 
 import com.example.proyectoidnp.R;
+import com.example.proyectoidnp.view.entrenamiento.ConjuntoEntrenamiento.*;
 
 import static androidx.core.content.ContextCompat.getSystemService;
 
@@ -72,6 +73,7 @@ public class CronoFragment extends Fragment {
                 }
             }
         });
+
         terminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +84,10 @@ public class CronoFragment extends Fragment {
     }
     public void cambioEntrenamiento(){
         Intent intent= new Intent(this.getContext(), entrenamiento.class);
+        intent.putExtra("s", "1");
         startActivity(intent);
     }
+
+
+
 }
